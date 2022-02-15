@@ -1,5 +1,4 @@
 import express from "express";
-
 const Web3 = require("web3");
 const fs = require("fs");
 const dotenv = require("dotenv");
@@ -20,24 +19,25 @@ async function isAddress() {
 
 isAddress();
 
-// CHECK BALANCE
+// CHECK BALANCE AND ADD BALANCE TO FILE
+
+let dateNow = Date.now();
 
 async function getBalance() {
-  const getBalanceAddress = await setInterval(() => web3.eth.getBalance(
-    process.env.ADDRESS).then(console.log), 60000);
-    return getBalanceAddress;
+  const getBalanceAddress = await web3.eth.getBalance(
+  process.env.ADDRESS);
+  console.log("Result:", getBalanceAddress);
+  fs.appendFileSync("log.txt", `Balance: ${getBalanceAddress} Ether, Date: ${dateNow} \n`);
+  console.log("Balance added!");
 }
 
-getBalance();
+// SET INTERVAL 60 SEC
 
-// ADD BALANCE TO FILE
-
-async function addLog() {
-  fs.appendFileSync("log.txt", "Balance: \n");
-  console.log("Balance added!"); 
+function addInterval() {
+  setInterval(getBalance, 60000);
 }
 
-addLog();
+addInterval();
 
 app.get("/", (req, res) => {
   res.send("Welcome to Ethereum!");
