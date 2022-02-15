@@ -1,6 +1,6 @@
 # nodejsethereum
 
-This application receives the balance at the Ethereum address
+This application receives balance from an Ethereum address
 
 ## Installation
 
