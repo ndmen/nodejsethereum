@@ -21,11 +21,10 @@ isAddress();
 
 // CHECK BALANCE AND ADD BALANCE TO FILE
 
-let dateNow = Date.now();
-
 async function getBalance() {
   const getBalanceAddress = await web3.eth.getBalance(
   process.env.ADDRESS);
+  let dateNow = Date.now();
   console.log("Result:", getBalanceAddress);
   fs.appendFileSync("log.txt", `Balance: ${getBalanceAddress} Ether, Date: ${dateNow} \n`);
   console.log("Balance added!");
