@@ -17,8 +17,3 @@ Run application:
 ```sh
 npm run dev
 ```
-## Check Work
-
-<img src = "https://i.ibb.co/9g9fbwL/2022-02-15-14-30-51.png"> </img>
-
-<img src="https://i.ibb.co/hVGvbxh/2022-02-15-14-32-13.png"> </img>
