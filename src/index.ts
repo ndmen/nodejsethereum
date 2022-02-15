@@ -1,11 +1,12 @@
 import express from "express";
-var Web3 = require("web3");
+const Web3 = require("web3");
 const fs = require("fs");
 const dotenv = require("dotenv");
 
 const app = express();
 const port = 3000;
-const web3 = new Web3("https://cloudflare-eth.com"); 
+const web3 = new Web3("https://cloudflare-eth.com");
+
 require('dotenv').config()
 
 // CHECK VALID ADDRESS
@@ -31,14 +32,14 @@ getBalance();
 // ADD BALANCE TO FILE
 
 async function addLog() {
-  fs.appendFileSync("log.txt", "Hello world!\n");
-  console.log("Text added!"); 
+  fs.appendFileSync("log.txt", "Balance: \n");
+  console.log("Balance added!"); 
 }
 
 addLog();
 
 app.get("/", (req, res) => {
-  res.send("Hello Ethereum!");
+  res.send("Welcome to Ethereum!");
 });
 
 app.listen(port, (): void => {
