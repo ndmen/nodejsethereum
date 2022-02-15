@@ -1,6 +1,6 @@
 # nodejsethereum
 
-This application receives balance from an Ethereum address
+This application receives balance from an Ethereum address every 60 seconds and save to file log.txt
 
 ## Installation
 
