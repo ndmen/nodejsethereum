@@ -1,5 +1,4 @@
 import express from "express";
-import { resolve } from "path/posix";
 var Web3 = require("web3");
 const fs = require("fs");
 const dotenv = require("dotenv");
