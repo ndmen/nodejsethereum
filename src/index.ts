@@ -1,4 +1,5 @@
 import express from "express";
+
 const Web3 = require("web3");
 const fs = require("fs");
 const dotenv = require("dotenv");
@@ -7,7 +8,7 @@ const app = express();
 const port = 3000;
 const web3 = new Web3("https://cloudflare-eth.com");
 
-require('dotenv').config()
+require("dotenv").config()
 
 // CHECK VALID ADDRESS
 
