@@ -29,22 +29,21 @@ function isAddress() {
     });
 }
 isAddress();
-// CHECK BALANCE
+// CHECK BALANCE AND ADD BALANCE TO FILE
+let dateNow = Date.now();
 function getBalance() {
     return __awaiter(this, void 0, void 0, function* () {
-        const getBalanceAddress = yield setInterval(() => web3.eth.getBalance(process.env.ADDRESS).then(console.log), 60000);
-        return getBalanceAddress;
-    });
-}
-getBalance();
-// ADD BALANCE TO FILE
-function addLog() {
-    return __awaiter(this, void 0, void 0, function* () {
-        fs.appendFileSync("log.txt", "Balance: \n");
+        const getBalanceAddress = yield web3.eth.getBalance(process.env.ADDRESS);
+        console.log("Result:", getBalanceAddress);
+        fs.appendFileSync("log.txt", `Balance: ${getBalanceAddress} Ether, Date: ${dateNow} \n`);
         console.log("Balance added!");
     });
 }
-addLog();
+// SET INTERVAL 60 SEC
+function addInterval() {
+    setInterval(getBalance, 60000);
+}
+addInterval();
 app.get("/", (req, res) => {
     res.send("Welcome to Ethereum!");
 });
