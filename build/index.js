@@ -13,13 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-var Web3 = require("web3");
+const Web3 = require("web3");
 const fs = require("fs");
 const dotenv = require("dotenv");
 const app = (0, express_1.default)();
 const port = 3000;
 const web3 = new Web3("https://cloudflare-eth.com");
-require('dotenv').config();
+require("dotenv").config();
 // CHECK VALID ADDRESS
 function isAddress() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -32,7 +32,7 @@ isAddress();
 // CHECK BALANCE
 function getBalance() {
     return __awaiter(this, void 0, void 0, function* () {
-        const getBalanceAddress = yield setInterval(() => web3.eth.getBalance(process.env.ADDRESS).then(console.log), 10000);
+        const getBalanceAddress = yield setInterval(() => web3.eth.getBalance(process.env.ADDRESS).then(console.log), 60000);
         return getBalanceAddress;
     });
 }
@@ -40,13 +40,13 @@ getBalance();
 // ADD BALANCE TO FILE
 function addLog() {
     return __awaiter(this, void 0, void 0, function* () {
-        fs.appendFileSync("log.txt", "Hello world!\n");
-        console.log("Text added!");
+        fs.appendFileSync("log.txt", "Balance: \n");
+        console.log("Balance added!");
     });
 }
 addLog();
 app.get("/", (req, res) => {
-    res.send("Hello Ethereum!");
+    res.send("Welcome to Ethereum!");
 });
 app.listen(port, () => {
     console.log(`Server is listening on ${port}`);
