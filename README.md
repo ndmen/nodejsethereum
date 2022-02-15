@@ -1,5 +1,7 @@
 # nodejsethereum
 
+This application receives the balance at the Ethereum address
+
 ## Installation
 
 ```sh
