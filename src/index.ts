@@ -23,7 +23,7 @@ isAddress();
 
 async function getBalance() {
   const getBalanceAddress = await setInterval(() => web3.eth.getBalance(
-    process.env.ADDRESS).then(console.log), 10000);
+    process.env.ADDRESS).then(console.log), 60000);
     return getBalanceAddress;
 }
 
